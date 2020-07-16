@@ -1,6 +1,6 @@
 # Generate-Trusty-Uri
 
-this project aims at making digital artifacts such as datasets, code, texts, and images verifiable and permanent.The digital artifacts that are supposed to be immutable, are vulnerable to being changed by some external entities. Moreover, there is no commonly accepted method to enforce this immutability.
+This project aims at making digital artifacts such as datasets, code, texts, and images verifiable and permanent.The digital artifacts that are supposed to be immutable, are vulnerable to being changed by some external entities. Moreover, there is no commonly accepted method to enforce this immutability.
 To solve this problem, in this project we would like to implement periodic generation and checking of cryptographic hash values generated for file which include both text and images. We show how cryptographic hash values can be used for the verification of digital artifacts. We demonstrate the verifiability and reliability of the data in the files that are supposed to be immutable. The implementation of this system will remain applicable for large files as well.
 The main steps being implemented as part of this project are - when a set of data is being uploaded by a data owner it is transformed into a cryptographic code. When an attacker tries to modify the data, this will be checked either when data owner logs into the system or periodically. The same will be notified to the data owner. Once the data owner finds out about this breach he can alert himself by either deleting the data or replacing it with the original data.
 
