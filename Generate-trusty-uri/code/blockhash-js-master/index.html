@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <script src="png.js/zlib.js"></script>
+  <script src="png.js/png.js"></script>
+  <script src="jpgjs/jpg.js"></script>
+
+  <script src="blockhash.js"></script>
+
+  <script>
+    var bits = 16;
+    blockhash('test.png', bits, 1, function(error, result) {
+        console.log('hash: ' + result);
+    });
+	blockhash('j1.jpg', bits, 1, function(error, result) {
+        console.log('hash: ' + result);
+    }
+	);
+	blockhash('j2.jpg', bits, 1, function(error, result) {
+        console.log('hash: ' + result);
+    }
+	);
+	blockhash('dhoni7.jpg', bits, 1, function(error, result) {
+        console.log('hash: ' + result);
+    }
+	);
+	blockhash('dhoni6.jpg', bits, 1, function(error, result) {
+        console.log('hash: ' + result);
+    }
+	);
+  </script>
+</head>
+<body>
+</body>
+</html>

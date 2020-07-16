@@ -1,0 +1,20 @@
+import java.sql.*;
+import java.io.*;
+import java.util.*;
+public class NLAttack {
+public static void main(String s[]){
+try{
+Class.forName("com.mysql.jdbc.Driver");
+String url="jdbc:mysql://localhost:3306/jajasjANDB";
+String username="root";
+String pass="ANVESH143!";
+Connection conn=DriverManager.getConnection(url,username,pass);
+Statement stmt=conn.createStatement();
+ResultSet rs=stmt.executeQuery("select * from censusl1");
+while(rs.next()){
+System.out.println(rs.)
+}
+}
+
+}
+}

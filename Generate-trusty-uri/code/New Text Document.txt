@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Verify file</title>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+      <div class="menu_nav" id=main-menu>
+        <ul class="nav-bar">
+          <li class="nav-button-home"><a href="index.html">Home</a></li>
+          <li class="nav-button-services"><a href="endUserLogin.html">EndUser</a></li>
+          <li class="nav-button-services"><a href="dataOwnerLogin.html">DataOwner</a></li>
+          <li class="nav-button-services"><a href="webServerLogin.html">Admin</a></li>
+          <li class="nav-button-services"><a href="projectDetails.html">AboutProject</a></li>
+		  <li></li>
+        </ul>
+      </div>
+          <h2><span>All Attacked Files</span></h2>
+          <p>
+  <table width="626" border="1" align="left" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="123">File Name </td>
+    <td width="124">Owner Name </td>
+    <td width="88">Status</td>
+	 <td width="126">Notify Owner</td>
+  </tr>
+ <%@ page import="java.sql.*" %>
+  <%
+  
+	String s1="",s2="",s3="",email="";
+	int i=0,j=0,k=0;
+
+    try 
+	  {
+		  Class.forName("com.mysql.jdbc.Driver");
+                    
+					Connection connection =null;
+                    
+                    
+					connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/makingdigitalartifacts","root","ANVESH143!");
+      	String query="select * from atkfile where fstat='attacked' "; 
+        Statement st=connection.createStatement();
+        ResultSet rs=st.executeQuery(query);
+	  while ( rs.next() )
+	   {
+		s1=rs.getString(1);
+		s2=rs.getString(2);
+		s3=rs.getString(3);
+		PreparedStatement pstmt =connection.prepareStatement("select * from owner where username=? ");
+		pstmt.setString(1,s2);
+		ResultSet rs=pstmt.executeQuery();
+		while(rs.next){
+		email=rs.getString(4);
+		%>
+
+  <tr>
+     <td height="29"><div align="center" class="style9"><%=s1%></div></td>
+     <td><div align="center" class="style9"><%=s1%></div></td>
+     <td><div align="center" class="style9"><%=s3%></div></td>
+	 <td><div align="center" class="style9"><%=s5%></div></td>
+	 <td><a href="mail.jsp?email=<%=email%>&file=<%=s1%>" >Send Email</a></td>
+  </tr>
+
+<%
+	   }
+	   }
+%>     <tr>
+         <td  valign="baseline" height="0">&nbsp;</td>
+         <td  valign="baseline" height="0">&nbsp;</td>
+         <td  valign="baseline" height="0">&nbsp;</td>
+         <td  valign="baseline" height="0">&nbsp;</td>
+		 <td  valign="baseline" height="0">&nbsp;</td>
+		 <td  valign="baseline" height="0">&nbsp;</td>
+       </tr>
+					  <%
+        connection.close();
+        }  catch(Exception e)
+          {
+            out.println(e.getMessage());
+          }
+%>
+</table> 
+          </p>
+          
+                    <p align="right">&nbsp;</p>
+                    <p align="right">&nbsp;</p>
+                    <p align="right">&nbsp;</p>
+                    <p align="right"><a href="webServerMain.jsp">Back</a></p>
+        </div>
+       
+        
+      </div>
+      <div class="sidebar">
+        <div class="gadget">
+          <h2>Sidebar Menu</h2>
+          <div class="clr"></div>
+          <ul class="sb_menu">
+            <li><a href="webServerMain.jsp">Server Main</a></li>
+			<li><a href="webServerLogin.html">Log Out</a></li>
+          </ul>
+        </div>
+        </div>
+</body>
+</html>
